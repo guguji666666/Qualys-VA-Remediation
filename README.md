@@ -1,3 +1,3 @@
 # Qualys-VA-Remediation
 
-## This artile shows remediation steps for some VA results detected
+## This article shows remediation steps for some VA results detected

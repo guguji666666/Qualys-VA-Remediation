@@ -5,6 +5,8 @@ RESULT: Microsoft is vulnerable Microsoft.MSPaint detected Version '6.1907.29027
 
 The QID detected the version of Microsoft.MSPaint by querying  wmi class Win32_InstalledStoreProgram
 
+![image](https://user-images.githubusercontent.com/96930989/229724969-93524983-48af-446c-b9e7-76020fe20829.png)
+
 ### Remediation steps
 
 Run powershell command

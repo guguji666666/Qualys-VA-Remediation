@@ -74,8 +74,10 @@ Get-AppxPackage -AllUsers -Name Microsoft.Paint
 
 Go to registry key, navigate to the path below, look for the app's package name that contains `Paint`
 ```
-KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications\
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications
 ```
+![image](https://user-images.githubusercontent.com/96930989/229831718-15218353-b975-45ea-9033-969d6e1e7c18.png)
+
 
 Remove the app for all users
 ```powershell

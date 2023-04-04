@@ -44,6 +44,7 @@ Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_6.2203.1037.0_x64__8weky
 
 Then we ran the commands below and confirmed Microsoft.Paint is removed completely
 
+![image](https://user-images.githubusercontent.com/96930989/229703379-a17577f0-eca4-4c94-97f9-21e2191d69bf.png)
 
 The entries related to Microsoft.Paint are also removed from `Get-WmiObject -Class Win32_InstalledStoreProgram`
 

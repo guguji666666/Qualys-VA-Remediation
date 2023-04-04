@@ -7,7 +7,7 @@ The QID detected the version of Microsoft.MSPaint by querying  wmi class Win32_I
 
 ### Remediation steps
 
-1. Run powershell command
+Run powershell command
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram
 ```

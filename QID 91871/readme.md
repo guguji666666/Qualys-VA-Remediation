@@ -1,14 +1,12 @@
-## QID 91871
+# QID 91871
 
 The QID 91871 is detected on the latest scans showing the below result.
 RESULT: Microsoft is vulnerable Microsoft.MSPaint detected Version '6.1907.29027.0'
 
 The QID detected the version of Microsoft.MSPaint by querying wmi class Win32_InstalledStoreProgram
 
-![image](https://user-images.githubusercontent.com/96930989/229725047-3c7b4379-655d-4151-a01b-e47847f57287.png)
 
-
-### Remediation steps on Win 10
+## Remediation steps on Win 10
 
 Run powershell command
 ```powershell
@@ -27,32 +25,30 @@ Find the entries that contains `Microsoft.MSPaint`
 Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
 ```
 
-Note the PackageFullName, we need it later
-
-![image](https://user-images.githubusercontent.com/96930989/229726459-12d864aa-e853-4338-9984-d4b88a9c79c7.png)
-
+Go to registry key, navigate to the path below, look for the app's package name that contains `Paint`
+```
+KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications\
+```
 
 Remove the app for all users
 ```powershell
+Set-ExecutionPolicy Unrestricted
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
 ```
 
-Sample
-```powershell
-Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_6.2203.1037.0_x64__8wekyb3d8bbwe
-```
 
 Then we ran the commands below and confirmed Microsoft.Paint is removed completely
+```powershell
+Get-AppxPackage -AllUsers *Paint* 
+Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
+Get-WmiObject -Class Win32_InstalledStoreProgram
+```
 
-![image](https://user-images.githubusercontent.com/96930989/229703379-a17577f0-eca4-4c94-97f9-21e2191d69bf.png)
-
-The entries related to Microsoft.Paint are also removed from `Get-WmiObject -Class Win32_InstalledStoreProgram`
-
-Paint 3D is not found in the installed apps
+Paint 3D is no longer found in the installed apps
 
 
 
-### Remediation steps on Win 11
+## Remediation steps on Win 11
 
 Run powershell command
 ```powershell
@@ -75,26 +71,24 @@ Find the entries that contains `Microsoft.Paint`
 ```powershell
 Get-AppxPackage -AllUsers -Name Microsoft.Paint
 ```
-Note the PackageFullName, we need it later
 
-![image](https://user-images.githubusercontent.com/96930989/229702915-e12f5704-bbf1-4913-9ec8-a687f6bcf6af.png)
+Go to registry key, navigate to the path below, look for the app's package name that contains `Paint`
+```
+KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications\
+```
 
 Remove the app for all users
 ```powershell
+Set-ExecutionPolicy Unrestricted
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
-```
-
-Sample
-```powershell
-Remove-AppxPackage -AllUsers -Package Microsoft.Paint_11.2301.22.0_x64__8wekyb3d8bbwe
 ```
 
 Then we ran the commands below and confirmed Microsoft.Paint is removed completely
 
-![image](https://user-images.githubusercontent.com/96930989/229703379-a17577f0-eca4-4c94-97f9-21e2191d69bf.png)
+```powershell
+Get-AppxPackage -AllUsers *Paint* 
+Get-AppxPackage -AllUsers -Name Microsoft.Paint
+Get-WmiObject -Class Win32_InstalledStoreProgram
+```
 
-The entries related to Microsoft.Paint are also removed from `Get-WmiObject -Class Win32_InstalledStoreProgram`
-
-Paint 3D is not found in the installed apps
-
-![image](https://user-images.githubusercontent.com/96930989/229704855-b90334c9-0a90-479d-8533-3ea826c9175c.png)
+Paint 3D is no longer found in the installed apps

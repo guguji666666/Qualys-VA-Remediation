@@ -93,4 +93,4 @@ Get-AppxPackage -AllUsers -Name Microsoft.Paint
 Get-WmiObject -Class Win32_InstalledStoreProgram
 ```
 
-Paint 3D is no longer found in the installed apps
+Paint/Paint 3D apps should no longer be found in the installed apps

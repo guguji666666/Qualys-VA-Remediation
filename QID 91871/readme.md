@@ -7,7 +7,53 @@ The QID detected the version of Microsoft.MSPaint by querying wmi class Win32_In
 
 ![image](https://user-images.githubusercontent.com/96930989/229725047-3c7b4379-655d-4151-a01b-e47847f57287.png)
 
-### Remediation steps
+
+### Remediation steps on Win 10
+
+Run powershell command
+```powershell
+Get-WmiObject -Class Win32_InstalledStoreProgram
+```
+![image](https://user-images.githubusercontent.com/96930989/229726114-ae986c23-8fb5-41e8-8c26-45dd0857cc40.png)
+
+
+Find the entries that contains `Paint`
+```powershell
+Get-AppxPackage -AllUsers *Paint* 
+```
+
+![image](https://user-images.githubusercontent.com/96930989/229726325-ffce4140-9ecd-45a1-8bfe-3cb38f2402ec.png)
+
+Find the entries that contains `Microsoft.MSPaint`
+```powershell
+Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
+```
+
+Note the PackageFullName, we need it later
+
+![image](https://user-images.githubusercontent.com/96930989/229726459-12d864aa-e853-4338-9984-d4b88a9c79c7.png)
+
+
+Remove the app for all users
+```powershell
+Remove-AppxPackage -AllUsers -Package <PackageFullName>
+```
+
+Sample
+```powershell
+Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_6.2203.1037.0_x64__8wekyb3d8bbwe
+```
+
+Then we ran the commands below and confirmed Microsoft.Paint is removed completely
+
+
+The entries related to Microsoft.Paint are also removed from `Get-WmiObject -Class Win32_InstalledStoreProgram`
+
+Paint 3D is not found in the installed apps
+
+
+
+### Remediation steps on Win 11
 
 Run powershell command
 ```powershell

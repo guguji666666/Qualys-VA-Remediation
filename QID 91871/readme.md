@@ -48,3 +48,6 @@ Then we ran the commands below and confirmed Microsoft.Paint is removed complete
 
 The entries related to Microsoft.Paint are also removed from `Get-WmiObject -Class Win32_InstalledStoreProgram`
 
+Paint 3D is not found in the installed apps
+
+![image](https://user-images.githubusercontent.com/96930989/229704855-b90334c9-0a90-479d-8533-3ea826c9175c.png)

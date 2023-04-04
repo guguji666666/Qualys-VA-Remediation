@@ -14,8 +14,6 @@ Run powershell command
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram
 ```
-![image](https://user-images.githubusercontent.com/96930989/229726114-ae986c23-8fb5-41e8-8c26-45dd0857cc40.png)
-
 
 Find the entries that contains `Paint`
 ```powershell

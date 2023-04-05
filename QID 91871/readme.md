@@ -8,10 +8,14 @@ The QID detected the version of Microsoft.MSPaint by querying wmi class Win32_In
 
 ## Remediation steps on Win 10
 
+![image](https://user-images.githubusercontent.com/96930989/229955007-4a5c912e-243b-488d-b2ff-f7d58d05e34d.png)
+
 Run powershell command
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram
 ```
+
+![image](https://user-images.githubusercontent.com/96930989/229954738-38b1b520-0f6a-405f-9b00-fea6f656f153.png)
 
 Find the entries that contains `Paint`
 ```powershell
@@ -24,16 +28,25 @@ Find the entries that contains `Microsoft.MSPaint`
 ```powershell
 Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
 ```
+![image](https://user-images.githubusercontent.com/96930989/229954842-9b0c910a-27b5-4ced-be3d-e5e628a3540c.png)
 
 Go to registry key, navigate to the path below, look for the app's package name that contains `Paint`
 ```
-KEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications\
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications
 ```
+
+![image](https://user-images.githubusercontent.com/96930989/229954944-824e661f-8487-491c-9a43-8a91a8163ea7.png)
 
 Remove the app for all users
 ```powershell
 Set-ExecutionPolicy Unrestricted
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
+```
+
+Sample
+```powershell
+Set-ExecutionPolicy Unrestricted
+Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_2019.729.2301.0_neutral_~_8wekyb3d8bbwe
 ```
 
 
@@ -44,8 +57,14 @@ Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
 Get-WmiObject -Class Win32_InstalledStoreProgram
 ```
 
+![image](https://user-images.githubusercontent.com/96930989/229955210-3ada3a68-93d3-45f6-ba6c-1280d83835fd.png)
+
+![image](https://user-images.githubusercontent.com/96930989/229955298-93916bb1-2bcb-4d3d-b54e-60b1ac7651e7.png)
+
+
 Paint 3D is no longer found in the installed apps
 
+![image](https://user-images.githubusercontent.com/96930989/229955323-19d3c955-19d9-464e-9ae3-eb4bbff6bc19.png)
 
 
 ## Remediation steps on Win 11

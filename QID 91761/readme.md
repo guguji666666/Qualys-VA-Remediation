@@ -5,10 +5,16 @@
 ### In `Apps & features` we can't find the VP9 extension
 ![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/44330279-59d5-43ff-8ecf-acefe2611bce)
 
+### In Microsoft Store we can find VP9 extension installed
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/87e6ea02-20fa-4371-86f1-422be425b4c2) <br>
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/a9b32886-c61e-4de5-81a2-70f4187b0aea)
+
+
 Run powershell command
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram > c:\temp\appsinstalled.txt
 ```
+
 
 Find the entries that contains `VP9`
 ```powershell

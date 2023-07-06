@@ -1,14 +1,13 @@
 [QID 91761 Microsoft Windows Codecs Library and VP9 Video Extensions Multiple Vulnerabilities](https://cve.report/qid/91761)
 
-## Remediation steps on Win 10/11
+## Remediation steps on Win 10/11 (Remove the extension)
 
-### In `Apps & features` we can't find the VP9 extension
+In `Apps & features` we can't find the VP9 extension, this is expected <br>
 ![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/44330279-59d5-43ff-8ecf-acefe2611bce)
 
-### In Microsoft Store we can find VP9 extension installed
+In Microsoft Store we can find VP9 extension installed <br>
 ![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/87e6ea02-20fa-4371-86f1-422be425b4c2) <br>
 ![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/a9b32886-c61e-4de5-81a2-70f4187b0aea)
-
 
 Run powershell command
 ```powershell
@@ -62,7 +61,7 @@ VP9VideoExtensions is no longer found in the installed apps <br>
 Reopen Microsft store, the VP9 video extension is no longer detected <br>
 ![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/ab75d5c8-9ebe-4512-9b44-2e1d32b09b19)
 
-If you want to install it with latest version, please reboot the machine and install it from Microsoft store. <br>
+If you want to install the VP9 extension with latest version, please reboot the machine and install it from Microsoft store. <br>
 To verify the installation, please run the powershell command <br>
 ```powershell
 Get-AppxPackage -AllUsers *VP9*

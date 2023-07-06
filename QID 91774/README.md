@@ -39,7 +39,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxA
 
 Remove the app for all users
 ```powershell
-Set-ExecutionPolicy UnrestrictedSet-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 ```
 ```powershell
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
@@ -56,10 +56,10 @@ Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_2019.729.2301.0_neutral_
 
 Then we ran the commands below and confirmed Microsoft.Paint is removed completely
 ```powershell
-Get-AppxPackage -AllUsers *Paint* Set-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers *Paint*
 ```
 ```powershell
-Get-AppxPackage -AllUsers -Name Microsoft.MSPaintSet-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
 ```
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram
@@ -108,7 +108,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxA
 
 Remove the app for all users
 ```powershell
-Set-ExecutionPolicy UnrestrictedSet-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 ```
 ```powershell
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
@@ -117,10 +117,10 @@ Remove-AppxPackage -AllUsers -Package <PackageFullName>
 Then we ran the commands below and confirmed Microsoft.Paint is removed completely
 
 ```powershell
-Get-AppxPackage -AllUsers *Paint* Set-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers *Paint*
 ```
 ```powershell
-Get-AppxPackage -AllUsers -Name Microsoft.PaintSet-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers -Name Microsoft.Paint
 ```
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram

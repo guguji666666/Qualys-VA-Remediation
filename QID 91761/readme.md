@@ -62,5 +62,11 @@ VP9VideoExtensions is no longer found in the installed apps <br>
 Reopen Microsft store, the VP9 video extension is no longer detected <br>
 ![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/ab75d5c8-9ebe-4512-9b44-2e1d32b09b19)
 
-If you want to install it with latest version, please reboot the machine and install it from Microsoft store
+If you want to install it with latest version, please reboot the machine and install it from Microsoft store. <br>
+To verify the installation, please run the powershell command <br>
+```powershell
+Get-AppxPackage -AllUsers *VP9*
+```
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/8f9562b9-d13e-4d98-bdd7-d42bdbf53f06)
+
 

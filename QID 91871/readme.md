@@ -6,7 +6,7 @@ RESULT: Microsoft is vulnerable Microsoft.MSPaint detected Version '6.1907.29027
 The QID detected the version of Microsoft.MSPaint by querying wmi class Win32_InstalledStoreProgram
 
 
-## Remediation steps on Win 10
+## Remediation steps on Win 10 (Remove the application)
 
 ![image](https://user-images.githubusercontent.com/96930989/229955007-4a5c912e-243b-488d-b2ff-f7d58d05e34d.png)
 
@@ -39,7 +39,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxA
 
 Remove the app for all users
 ```powershell
-Set-ExecutionPolicy UnrestrictedSet-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 ```
 ```powershell
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
@@ -47,7 +47,7 @@ Remove-AppxPackage -AllUsers -Package <PackageFullName>
 
 Sample
 ```powershell
-Set-ExecutionPolicy UnrestrictedSet-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 ```
 ```powershell
 Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_2019.729.2301.0_neutral_~_8wekyb3d8bbwe
@@ -56,10 +56,10 @@ Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_2019.729.2301.0_neutral_
 
 Then we ran the commands below and confirmed Microsoft.Paint is removed completely
 ```powershell
-Get-AppxPackage -AllUsers *Paint* Set-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers *Paint*
 ```
 ```powershell
-Get-AppxPackage -AllUsers -Name Microsoft.MSPaintSet-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
 ```
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram
@@ -108,7 +108,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxA
 
 Remove the app for all users
 ```powershell
-Set-ExecutionPolicy UnrestrictedSet-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 ```
 ```powershell
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
@@ -117,10 +117,10 @@ Remove-AppxPackage -AllUsers -Package <PackageFullName>
 Then we ran the commands below and confirmed Microsoft.Paint is removed completely
 
 ```powershell
-Get-AppxPackage -AllUsers *Paint* Set-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers *Paint* 
 ```
 ```powershell
-Get-AppxPackage -AllUsers -Name Microsoft.PaintSet-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers -Name Microsoft.Paint
 ```
 ```powershell
 Get-WmiObject -Class Win32_InstalledStoreProgram

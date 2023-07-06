@@ -15,28 +15,26 @@ Run powershell command
 Get-WmiObject -Class Win32_InstalledStoreProgram > c:\temp\appsinstalled.txt
 ```
 
+In txt file we can find several entries related to `VP9` <br>
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/926e54e2-c62e-4dd7-a02d-33b732f41369)
 
-Find the entries that contains `VP9`
+Then run the powershell command below
 ```powershell
-Get-AppxPackage -AllUsers *Paint* 
+Get-AppxPackage -AllUsers *VP9* 
 ```
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/7b4bf1d3-a246-4ce7-85ad-9fefe0694a04)
 
-Find the entries that contains `Microsoft.MSPaint`
-```powershell
-Get-AppxPackage -AllUsers -Name Microsoft.MSPaint
-```
-![image](https://user-images.githubusercontent.com/96930989/229954842-9b0c910a-27b5-4ced-be3d-e5e628a3540c.png)
 
-Go to registry key, navigate to the path below, look for the app's package name that contains `Paint`
+Go to registry key, navigate to the path below, look for the app's package name that contains `VP9`
 ```
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications
 ```
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/6c1cd75d-f988-4a3f-a63c-0f6858977c56)
 
-![image](https://user-images.githubusercontent.com/96930989/229954944-824e661f-8487-491c-9a43-8a91a8163ea7.png)
 
 Remove the app for all users
 ```powershell
-Set-ExecutionPolicy UnrestrictedSet-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 ```
 ```powershell
 Remove-AppxPackage -AllUsers -Package <PackageFullName>
@@ -44,29 +42,25 @@ Remove-AppxPackage -AllUsers -Package <PackageFullName>
 
 Sample
 ```powershell
-Set-ExecutionPolicy UnrestrictedSet-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Unrestricted
 ```
 ```powershell
-Remove-AppxPackage -AllUsers -Package Microsoft.MSPaint_2019.729.2301.0_neutral_~_8wekyb3d8bbwe
+Remove-AppxPackage -AllUsers -Package Microsoft.VP9VideoExtensions_1.0.61591.0_neutral_~_8wekyb3d8bbwe
 ```
 
-Then we ran the commands below and confirmed Microsoft.Paint is removed completely
+Then we ran the commands below and confirmed `Microsoft.VP9VideoExtensions` is removed completely
 ```powershell
-Get-AppxPackage -AllUsers *Paint* Set-ExecutionPolicy Unrestricted
-```
-```powershell
-Get-AppxPackage -AllUsers -Name Microsoft.MSPaintSet-ExecutionPolicy Unrestricted
+Get-AppxPackage -AllUsers *VP9*
 ```
 ```powershell
-Get-WmiObject -Class Win32_InstalledStoreProgram
+Get-WmiObject -Class Win32_InstalledStoreProgram > c:\temp\appsinstalledAfter.txt
 ```
 
-![image](https://user-images.githubusercontent.com/96930989/229955210-3ada3a68-93d3-45f6-ba6c-1280d83835fd.png)
+VP9VideoExtensions is no longer found in the installed apps <br>
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/c9da0bf7-c191-407a-ad0c-2e1b5fac8da4)
 
-![image](https://user-images.githubusercontent.com/96930989/229955298-93916bb1-2bcb-4d3d-b54e-60b1ac7651e7.png)
+Reopen Microsft store, the VP9 video extension is no longer detected <br>
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/ab75d5c8-9ebe-4512-9b44-2e1d32b09b19)
 
-
-Paint 3D is no longer found in the installed apps
-
-![image](https://user-images.githubusercontent.com/96930989/229955323-19d3c955-19d9-464e-9ae3-eb4bbff6bc19.png)
+If you want to install it with latest version, please reboot the machine and install it from Microsoft store
 

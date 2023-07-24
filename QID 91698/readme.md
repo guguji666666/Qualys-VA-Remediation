@@ -3,6 +3,8 @@
 ### QID: 91698 : Microsoft Windows Codecs Library Remote Code Execution Vulnerabilities
 ### Scan Results: Microsoft vulnerable Microsoft.WebpImageExtension detected Version '1.0.22753.0'
 
+### Remediation steps (remove the extension)
+
 #### Check existing `WebpImageExtension`
 ```powershell
 Get-AppxPackage -AllUsers *WebpImageExtension*

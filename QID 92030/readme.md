@@ -40,7 +40,7 @@ Then navigate to the path below in registry editor, get the full name of the pac
 ```
 Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications
 ```
-![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/d2d5c53c-5db5-4019-8dc4-da76a78f89da)
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/787a4177-fcd0-4693-bbf6-a8685cd67c4b)
 
 Then remove this package
 ```powershell

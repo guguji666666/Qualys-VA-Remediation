@@ -55,7 +55,7 @@ Get-AppxPackage -AllUsers *RawImage*
 Get-AppxPackage -AllUsers *VP9*
 ```
 
-Then it may take around 24 hours to refresh the VA findings
+It may take around 24 hours to refresh the VA findings
 
 
 

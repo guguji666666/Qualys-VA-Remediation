@@ -27,7 +27,25 @@ Then remove this package
 Remove-AppxPackage -AllUsers -Package <package full name>
 ```
 
+
 ### VP9VideoExtensions
+#### Check existing `VP9VideoExtension`
+```powershell
+Get-AppxPackage -AllUsers *VP9*
+```
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/044991fb-31c6-430e-ae21-f771770d6f2f)
+
+Then navigate to the path below in registry editor, get the full name of the package
+```
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications
+```
+![image](https://github.com/guguji666666/Qualys-VA-Remediation/assets/96930989/fba1415e-38d0-47dc-9a58-85b929ca4f96)
+
+Then remove this package
+```powershell
+Remove-AppxPackage -AllUsers -Package <package full name>
+```
+
 
 ### RawImageExtension
 #### Check existing `RawImageExtension`
@@ -46,6 +64,7 @@ Then remove this package
 ```powershell
 Remove-AppxPackage -AllUsers -Package <package full name>
 ```
+
 
 ### HEVCVideoExtension
 #### Check existing `HEVCVideoExtension`
@@ -68,6 +87,9 @@ Remove-AppxPackage -AllUsers -Package <package full name>
 #### Verification
 ```powershell
 Get-AppxPackage -AllUsers *HEIFI*
+```
+```powershell
+Get-AppxPackage -AllUsers *VP9*
 ```
 ```powershell
 Get-AppxPackage -AllUsers *RawImage*

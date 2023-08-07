@@ -35,7 +35,7 @@ Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxA
 
 Then remove this package
 ```powershell
-Remove-AppxPackage -AllUsers -Name Microsoft.AV1VideoExtension
+Get-AppxPackage -AllUsers -Name "Microsoft.AV1VideoExtension" | Remove-AppxPackage -AllUsers
 ```
 
 After removing these extensions, please double confirm running the powershell commands below:

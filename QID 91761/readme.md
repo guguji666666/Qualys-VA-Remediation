@@ -1,4 +1,4 @@
-[QID 91761 Microsoft Windows Codecs Library and VP9 Video Extensions Multiple Vulnerabilities](https://cve.report/qid/91761)
+## [QID 91761 Microsoft Windows Codecs Library and VP9 Video Extensions Multiple Vulnerabilities](https://cve.report/qid/91761)
 
 ## Remediation steps on Win 10/11 (Remove the extension)
 
